@@ -20,11 +20,15 @@ public class Chest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Singleton.Score >= coinsRequired && !hasRun)
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (Singleton.Score >= coinsRequired && !hasRun)
         {
-            hasRun = true; 
+            hasRun = true;
             chest.SetBool("Coins", true);
-            StartCoroutine(slowDown());            
+            StartCoroutine(slowDown());
         }
     }
 }
