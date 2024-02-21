@@ -62,7 +62,7 @@ public class PlayerMove : MonoBehaviour
             bool isGrounded()
             {
                 int layer_mask = LayerMask.GetMask("Ground");
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, (transform.localScale.y/2) + .1f, layer_mask);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, (transform.localScale.y/2) + .4f, layer_mask);
                 return hit;
                 
             }
