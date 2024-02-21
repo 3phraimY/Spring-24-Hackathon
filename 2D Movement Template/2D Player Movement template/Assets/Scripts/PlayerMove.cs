@@ -48,7 +48,7 @@ public class PlayerMove : MonoBehaviour
                 vSpeed = 0;
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space)) //checks to see if the user is pressing the jump button 'W' or 'Space'
                 {
-                    vSpeed = 15; //sets the vertical speed to 12, Change this if you want to jump higher.
+                    vSpeed = 20; //sets the vertical speed to 12, Change this if you want to jump higher.
 
                 }
             }
@@ -62,8 +62,17 @@ public class PlayerMove : MonoBehaviour
             bool isGrounded()
             {
                 int layer_mask = LayerMask.GetMask("Ground");
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, (transform.localScale.y/2) + .4f, layer_mask);
-                return hit;
+                RaycastHit2D left = Physics2D.Raycast(new Vector2(transform.position.x - transform.lossyScale.x / 2, transform.position.y), -transform.up, (transform.localScale.y / 2) + 1f, layer_mask);
+                RaycastHit2D right = Physics2D.Raycast(new Vector2(transform.position.x+transform.lossyScale.x/2,transform.position.y), -transform.up, (transform.localScale.y / 2) + 1f, layer_mask);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, (transform.localScale.y/2) + 1f, layer_mask);
+                if (left || right || hit)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
                 
             }
         }
