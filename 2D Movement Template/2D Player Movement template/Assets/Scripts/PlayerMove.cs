@@ -29,8 +29,8 @@ public class PlayerMove : MonoBehaviour
     {
         //Choose one of the following depending on your game.
 
-        //SideScrollMove();
-        TopDownMove(); 
+        SideScrollMove();
+        //TopDownMove(); 
     }
 
     void SideScrollMove()
