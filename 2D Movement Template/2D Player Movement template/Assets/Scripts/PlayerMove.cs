@@ -48,7 +48,7 @@ public class PlayerMove : MonoBehaviour
                 vSpeed = 0;
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space)) //checks to see if the user is pressing the jump button 'W' or 'Space'
                 {
-                    vSpeed = 12; //sets the vertical speed to 12, Change this if you want to jump higher.
+                    vSpeed = 15; //sets the vertical speed to 12, Change this if you want to jump higher.
 
                 }
             }
